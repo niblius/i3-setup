@@ -11,11 +11,11 @@ bindsym XF86AudioRaiseVolume exec \
 
 
 # Workspace names
-set $ws_terminal "&#xf120;"
-set $ws_web "&#xf269;"
-set $ws_conv "&#xf086;"
-set $ws_code "&#xf121;"
-set $ws_other "&#xf17c;"
+set $ws_terminal "1:&#xf120;"
+set $ws_web "2:&#xf269;"
+set $ws_conv "3:&#xf086;"
+set $ws_code "4:&#xf121;"
+set $ws_other "5:&#xf17c;"
 
 # Summone apps to the places they belong to
 # Class name should start with capital letter
@@ -168,7 +168,10 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         font pango:DejaVu Sans Mono, Awesome 8
-
+        strip_workspace_numbers yes
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
         tray_output none
 }
+
+# Appearance
+hide_edge_borders both
