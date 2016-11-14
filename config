@@ -2,9 +2,12 @@
 set $mod Mod4
 
 # Volume control
-bindsym XF86AudioMute exec "amixer set Master toggle"
-bindsym XF86AudioLowerVolume exec "amixer -M set Master 5%-"
-bindsym XF86AudioRaiseVolume exec "amixer -M set Master 5%+"
+bindsym XF86AudioMute exec \
+  "amixer set Master toggle | ~/.config/i3/scripts/vol-notify"
+bindsym XF86AudioLowerVolume exec \
+  "amixer -M set Master 5%- | ~/.config/i3/scripts/vol-notify"
+bindsym XF86AudioRaiseVolume exec \
+  "amixer -M set Master 5%+ | ~/.config/i3/scripts/vol-notify"
 
 
 # Workspace names

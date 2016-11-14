@@ -15,7 +15,7 @@ STATE=`amixer sget Master          | \
 
 # To avoid many notifications piling on top of eachother when pressing the
 # volume buttons multiple times, kill the notification daemon each time.
-killall -q mate-notification-daemon
+killall -q dunst
 
 if [[ $LANG == "de_DE.UTF-8" ]]; then
         MUTE="Stumm"

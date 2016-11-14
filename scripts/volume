@@ -3,22 +3,17 @@
 # Display the volume in i3bar and enable changing of volume with two-finger
 # scrolling over the symbol and toggle mute with right click.
 
+# Get the volume percentage:
+VOLUME=$(amixer sget Master | egrep -o -m 1 "[0-9]+%")
+
 # Check if muted:
 STATE=`amixer sget Master | egrep -m 1 'Playback.*?\[o' | egrep -o '\[o.+\]'`
-
-# Get the volume percentage:
-VOLUME_STR=`amixer sget Master`
-REGEX="([0-9]+)%"
-if [[ $VOLUME_STR =~ $REGEX ]]
-then
-    VOLUME="${BASH_REMATCH[1]}"
-fi
 
 # # What to display in i3bar:
 if [[ $STATE == '[off]' ]]; then
         ICON=""
 else
-        VOLNUM=$(echo -e $VOLUME | egrep -o "[0-9]+")
+        VOLUME=$(echo -e $VOLUME | egrep -o "[0-9]+")
         if [ $VOLUME -lt 50 ]; then
                 ICON=""
         else
@@ -28,9 +23,9 @@ fi
 
 # Use mouse to change volume and toggle mute in i3bar:
 case $BLOCK_BUTTON in
-  1) ~/.i3/scripts/vol-notify ;;
+  1) ~/.config/i3/scripts/vol-notify ;;
   # Right click to toggle mute
-  3) amixer -q sset Master toggle & ~/.i3/scripts/vol-notify ;;
+  3) amixer -q sset Master toggle | ~/.config/i3/scripts/vol-notify ;;
   # Scroll up to increase volume
   4) amixer -q sset Master 5%+ & echo $ICON$VOLUME;;
   # Scroll down to decrease volume
