@@ -29,7 +29,7 @@ if [[ "$STATE" == "charging" ]]; then
                 SYMBOL=""
         fi
 elif [[ "$STATE" == "discharging" ]]; then
-        COLOR="#dddd00"
+        COLOR="#ffffff"
         if [[ "$PERCENTAGE" -lt "10" ]]; then
                 SYMBOL=""
                 COLOR="#dd0000"
@@ -48,7 +48,7 @@ elif [[ "$STATE" == "discharging" ]]; then
         fi
 elif [ "$STATE" == "full" ] || [ "$STATE" == "unknown" ]; then
         SYMBOL=""
-        COLOR="#00ff00"
+        COLOR="#ffffff"
 else
         SYMBOL=""
         COLOR=""

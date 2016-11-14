@@ -9,6 +9,12 @@ bindsym XF86AudioLowerVolume exec \
 bindsym XF86AudioRaiseVolume exec \
   "amixer -M set Master 5%+ | ~/.config/i3/scripts/vol-notify"
 
+# Brightness control
+bindsym XF86MonBrightnessDown exec xbacklight -time 10 -dec 10 &  \
+  exec ~/.config/i3/scripts/brightness-notify
+bindsym XF86MonBrightnessUp exec xbacklight -time 10 -inc 10 & \
+  exec ~/.config/i3/scripts/brightness-notify
+
 
 # Workspace names
 set $ws_terminal "1:&#xf120;"
