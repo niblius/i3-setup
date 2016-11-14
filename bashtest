@@ -1,10 +1,12 @@
 #!/bin/bash
 
-REGEX="([0-9]+)%"
-VOLUME=$(amixer sget Master)
+a="10"
 
-if [[ $VOLUME =~ $REGEX ]]
-then
-    name="${BASH_REMATCH[1]}"
-fi
-echo $name
+b=$(( $a % 3 ))
+echo $b
+
+
+VOLUME="40"
+BARS_N=$(( $VOLUME % 5 ))
+echo $VOLUME
+echo $BARS_N

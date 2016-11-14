@@ -39,6 +39,7 @@ font pango:monospace 8
 
 # AUTORUN
 exec --no-startup-id setxkbmap -layout 'us, ua, ru' -option 'grp:caps_toggle' &
+exec --no-startup-id compton -b --conf ~/.config/i3/compton
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod

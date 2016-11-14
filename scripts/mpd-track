@@ -20,7 +20,7 @@ if [[ $TRACK == *volume:* ]]; then
 fi
 
 if [[ $BLOCK_BUTTON == '1' ]]; then
-       urxvt -title "float" -hold -e ncmpcpp -c ~/.i3/ncmpcpp.conf
+       urxvt -title "float" -hold -e ncmpcpp -c ~/.config/i3/ncmpcpp.conf
 fi
 if [[ $BLOCK_BUTTON == '3' ]]; then
         TITLE=$(mpc -f "[%title%]" | head -1)

@@ -12,7 +12,7 @@ if [[ "$HOST" == "debian" ]]; then
         LAPTOP_RES=2560x1440
         EXTERNAL=HDMI2
 elif [[ "$HOST" == "m73" ]]; then
-        bash /home/christoph/.i3/scripts/monitor-fonts
+        bash /home/christoph/.config/i3/scripts/monitor-fonts
         xrandr --output HDMI1 --mode 1920x1080 --output VGA1 --off
         exit 1
 else

@@ -47,7 +47,7 @@ elif language == 'de_DE':
         city = city
 
 # Get weather translation and icon:
-df = pd.read_csv(os.path.expanduser('~/') + '.i3/scripts/weather.csv')
+df = pd.read_csv(os.path.expanduser('~/') + '.config/i3/scripts/weather.csv')
 df = df[df.en == condition]
 
 if df.shape[0] == 0:

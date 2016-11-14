@@ -23,4 +23,4 @@ fi
 
 # Send the notification with the icon:
 notify-send `echo $BRIGHTNESS: $BRIGHTNESS_VALUE` \
-        -t 1000 -i ~/.i3/icons/brightness-icon.png
+        -t 1000 -i ~/.config/i3/icons/brightness-icon.png
