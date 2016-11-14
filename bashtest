@@ -1,0 +1,10 @@
+#!/bin/bash
+
+REGEX="([0-9]+)%"
+VOLUME=$(amixer sget Master)
+
+if [[ $VOLUME =~ $REGEX ]]
+then
+    name="${BASH_REMATCH[1]}"
+fi
+echo $name
