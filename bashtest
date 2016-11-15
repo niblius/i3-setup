@@ -1,15 +1,4 @@
 #!/bin/bash
 
-MPC=$(mpc)
-# If the output doesn't contain "error:" or "volume:", get the state.
-if [[ ${MPC} =~ "error:" ]] || [[ ${MPC} =~ "volume:" ]]; then
-        STATE=$(echo "$MPC" | sed -n '2p' | cut -d "[" -f2 | cut -d "]" -f1)
-        # If a song is playing or paused, display a next track symbol.
-        echo $STATE
-        if [[ "$STATE" == "playing" ]] || [[ "$STATE" == "paused" ]]; then
-                echo ">"
-                if [[ $BLOCK_BUTTON == '1' ]]; then
-                        mpc next
-                fi
-        fi
-fi
+files=(~/wallpapers/*)
+printf "%s\n" "${files[RANDOM % ${#files[@]}]}"

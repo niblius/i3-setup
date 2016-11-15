@@ -19,8 +19,10 @@ fi
 
 if [[ $BLOCK_BUTTON == '1' ]]; then
         WINDOW=$(pgrep ncmpc)
+
         if [[ "${WINDOW}" == "" ]]; then
-          xfce4-terminal --title="ncmpc" --hold --command ncmpc
+          # use i3-msg, because otherwise doesn't always focuse
+          i3-msg -q 'exec xfce4-terminal --title="ncmpc" --hold --command ncmpc'
         fi
         i3-msg -q '[title="ncmpc"] focus'
 fi
