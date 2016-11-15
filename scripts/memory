@@ -5,21 +5,22 @@ MEMORY_CRIT_CUTOFF=20
 MEMORY_WARNING_CUTOFF=30
 
 
-MEMORY_PRINTABLE=$(free -h G | awk '{ print $4}' | sed -n '2p' | grep -oP '\d+.\d+')
+MEMORY_FREE=$(free -h G | awk '{ print $4}' | sed -n '2p' | grep -oP '\d+.\d+')
 TOTAL=$(free -h G | awk '{ print $2}' | sed -n '2p' | grep -oP '\d+.\d+')
-MEMORY=`echo $MEMORY_PRINTABLE "* 10" | bc -l | cut -d "." -f 1`
+MEMORY=`echo $MEMORY_FREE "* 10" | bc -l | cut -d "." -f 1`
+MEMORY_USED=$(free -h G | awk '{ print $3}' | sed -n '2p' | grep -oP '\d+.\d+')
 
 if [[ $((MEMORY)) -lt $((MEMORY_CRIT_CUTOFF)) ]]; then
-        echo "RAM:" $MEMORY_PRINTABLE"/"$TOTAL"G"
-        echo "RAM:" $MEMORY_PRINTABLE"/"$TOTAL"G"
+        echo "RAM:" $MEMORY_USED"/"$TOTAL"G"
+        echo "RAM:" $MEMORY_USED"/"$TOTAL"G"
         echo "#ff1111"
 elif [[ $((MEMORY)) -lt $((MEMORY_WARNING_CUTOFF)) ]]; then
-        echo "RAM:" $MEMORY_PRINTABLE"/"$TOTAL"G"
-        echo "RAM:" $MEMORY_PRINTABLE"/"$TOTAL"G"
+        echo "RAM:" $MEMORY_USED"/"$TOTAL"G"
+        echo "RAM:" $MEMORY_USED"/"$TOTAL"G"
         echo "#dddd00"
 else
-        echo "RAM:" $MEMORY_PRINTABLE"/"$TOTAL"G"
+        echo "RAM:" $MEMORY_USED"/"$TOTAL"G"
 fi
 if [[ $BLOCK_BUTTON == '3' ]]; then
-        notify-send "`echo Free RAM: "$MEMORY_PRINTABLE"G`" -t 1000
+        notify-send "`echo Free RAM: "$MEMORY_FREE"G`" -t 1000
 fi

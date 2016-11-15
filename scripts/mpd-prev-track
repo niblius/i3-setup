@@ -1,15 +1,16 @@
 #!/bin/bash
 
+# Create a button to go back to the previous track on the mpd server.
+
 MPC=$(mpc)
 # If the output doesn't contain "error:" or "volume:", get the state.
 if [[ ${MPC} =~ "error:" ]] || [[ ${MPC} =~ "volume:" ]]; then
         STATE=$(echo "$MPC" | sed -n '2p' | cut -d "[" -f2 | cut -d "]" -f1)
-        # If a song is playing or paused, display a next track symbol.
-        echo $STATE
+        # If a song is playing or paused, display a prev track symbol.
         if [[ "$STATE" == "playing" ]] || [[ "$STATE" == "paused" ]]; then
-                echo ">"
+                echo ""
                 if [[ $BLOCK_BUTTON == '1' ]]; then
-                        mpc next
+                        mpc prev
                 fi
         fi
 fi

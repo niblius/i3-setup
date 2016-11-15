@@ -18,8 +18,6 @@ STATE=`amixer sget Master          | \
 killall -q dunst
 
 BARS_N=$(( $VOLUME / 5 ))
-echo $VOLUME
-echo $BARS_N
 SPACES_N=$((20 - BARS_N))
 
 printf_n_times() {
@@ -29,12 +27,12 @@ printf_n_times() {
  echo "${v// /$str}"
 }
 
-BARS=$(printf_n_times "❚" "${BARS_N}")
-SPACES=$(printf_n_times "-" "${SPACES_N}")
+BARS=$(printf_n_times "▮" "${BARS_N}")
+SPACES=$(printf_n_times "▯" "${SPACES_N}")
 
 # Have a different symbol for varying volume levels:
 if [[ $STATE != '[off]' ]]; then
-      notify-send " ${BARS}${SPACES}" -t 1000
+      notify-send " <b>${BARS}</b>${SPACES}" -t 1000
 else
       # If volume is muted, display the mute sybol:
       notify-send " Mute" -t 1000

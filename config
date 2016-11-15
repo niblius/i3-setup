@@ -10,10 +10,10 @@ bindsym XF86AudioRaiseVolume exec \
   "amixer -M set Master 5%+ | ~/.config/i3/scripts/vol-notify"
 
 # Brightness control
-bindsym XF86MonBrightnessDown exec xbacklight -time 10 -dec 10 &  \
-  exec ~/.config/i3/scripts/brightness-notify
-bindsym XF86MonBrightnessUp exec xbacklight -time 10 -inc 10 & \
-  exec ~/.config/i3/scripts/brightness-notify
+bindsym XF86MonBrightnessDown exec \
+  "xbacklight -time 10 -dec 5 | ~/.config/i3/scripts/brightness-notify"
+bindsym XF86MonBrightnessUp exec \
+  "xbacklight -time 10 -inc 5 | ~/.config/i3/scripts/brightness-notify"
 
 
 # Workspace names
@@ -46,6 +46,7 @@ font pango:monospace 8
 # AUTORUN
 exec --no-startup-id setxkbmap -layout 'us, ua, ru' -option 'grp:caps_toggle' &
 exec --no-startup-id compton -b --conf ~/.config/i3/compton
+exec --no-startup-id mpd ~/.config/mpd/mpd.conf
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -137,13 +138,6 @@ bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -181,3 +175,23 @@ bar {
 
 # Appearance
 hide_edge_borders both
+
+# Lock, exit, power off, etc...
+set $Locker ~/.config/i3/scripts/blurred-lock
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown, (c) restart i3
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+
+    # restart i3
+    bindsym c restart
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+e mode "$mode_system"

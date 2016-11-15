@@ -13,23 +13,23 @@ STATE=$(echo $POWER | cut -d : -f 2 | cut -d , -f 1 | tr '[:upper:]' '[:lower:]'
 PERCENTAGE=$(echo $POWER | grep -o '[^ ]*%' | grep -o '[0-9]*')
 REMAINING=$(acpi -b | cut -d % -f 2 | cut -d , -f 2)
 
+COLOR="#ffffff"
+
 if [[ "$STATE" == "charging" ]]; then
-        COLOR="#00dd00"
         if [[ "$PERCENTAGE" -lt "10" ]]; then
-                SYMBOL=""
+                SYMBOL=""
         elif [[ "$PERCENTAGE" -lt "25" ]]; then
-                SYMBOL=""
+                SYMBOL=""
         elif [[ "$PERCENTAGE" -lt "50" ]]; then
-                SYMBOL=""
+                SYMBOL=""
         elif [[ "$PERCENTAGE" -lt "75" ]]; then
-                SYMBOL=""
+                SYMBOL=""
         elif [[ "$PERCENTAGE" -lt "95" ]]; then
-                SYMBOL=""
+                SYMBOL=""
         else
-                SYMBOL=""
+                SYMBOL=""
         fi
 elif [[ "$STATE" == "discharging" ]]; then
-        COLOR="#ffffff"
         if [[ "$PERCENTAGE" -lt "10" ]]; then
                 SYMBOL=""
                 COLOR="#dd0000"
@@ -47,10 +47,9 @@ elif [[ "$STATE" == "discharging" ]]; then
                 SYMBOL=""
         fi
 elif [ "$STATE" == "full" ] || [ "$STATE" == "unknown" ]; then
-        SYMBOL=""
-        COLOR="#ffffff"
+        SYMBOL=""
 else
-        SYMBOL=""
+        SYMBOL=""
         COLOR=""
 fi
 
