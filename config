@@ -17,7 +17,7 @@ bindsym XF86MonBrightnessUp exec \
 
 
 # Workspace names
-set $ws_terminal "1:&#xf120;"
+set $ws_terminals "1:&#xf120;"
 set $ws_web "2:&#xf269;"
 set $ws_conv "4:&#xf086;"
 set $ws_code "3:&#xf121;"
@@ -26,15 +26,14 @@ set $ws_other "5:&#xf17c;"
 # Summone apps to the places they belong to
 # Class name should start with capital letter
 bindsym $mod+F1 [class="Firefox"] move workspace $ws_web; \
- [class="Xfce4-terminal"] move workspace $ws_terminal; \
+ [class="Xfce4-terminal"] move workspace $ws_terminals; \
  [class="Atom"] move workspace $ws_code; \
  [class="Telegram"] $ws_conv; \
  [class="TelegramDesktop"] $ws_conv
- # TODO: all other classes
 
 # Application rules
 assign [class="Firefox"] $ws_web
-assign [class="Xfce4-terminal"] $ws_terminal
+assign [class="Xfce4-terminal"] $ws_terminals
 assign [class="Atom"] $ws_code
 assign [class="Telegram"] $ws_conv
 assign [class="TelegramDesktop"] $ws_conv
@@ -46,18 +45,7 @@ exec --no-startup-id mpd ~/.config/mpd/mpd.conf
 exec --no-startup-id ~/.config/i3/scripts/set-random-desktop-background
 
 # Apps
-exec xfce4-terminal --title="ncmpc" --hold --command ncmpc
-exec xfce4-terminal --title="mc" --hold --command mc
-exec xfce4-terminal --title="terminal-1"
-exec xfce4-terminal --title="terminal-2"
-exec xfce4-terminal --title="vk" --command vk
-exec /usr/bin/firefox
-exec /usr/bin/atom
-exec ~/apps/Telegram/Telegram
-
-# Layouts
-# P. S. for saving layout use i3-save-tree --output=LVDS1 > ~/.config/i3/default-layout.json
-# exec --no-startup-id "i3-msg 'append_layout /home/nexiten/.config/i3/default-layout.json'"
+bindsym $mod+Shift+i exec --no-startup-id ~/.config/i3/start_apps.sh
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -126,7 +114,7 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace $ws_terminal
+bindsym $mod+1 workspace $ws_terminals
 bindsym $mod+2 workspace $ws_web
 bindsym $mod+3 workspace $ws_code
 bindsym $mod+4 workspace $ws_conv
@@ -138,7 +126,7 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $ws_terminal
+bindsym $mod+Shift+1 move container to workspace $ws_terminals
 bindsym $mod+Shift+2 move container to workspace $ws_web
 bindsym $mod+Shift+3 move container to workspace $ws_code
 bindsym $mod+Shift+4 move container to workspace $ws_conv
