@@ -1,0 +1,268 @@
+// vim:ts=4:sw=4:et
+{
+    // workspace with 2 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "fullscreen_mode": 1,
+    "layout": "splith",
+    "percent": 0.333333333333333,
+    "type": "workspace",
+    "nodes": [
+        {
+            // splitv split container with 2 children
+            "border": "pixel",
+            "floating": "auto_off",
+            "layout": "splitv",
+            "percent": 0.5,
+            "type": "con",
+            "nodes": [
+                {
+                    // splith split container with 1 children
+                    "border": "pixel",
+                    "floating": "auto_off",
+                    "layout": "splith",
+                    "percent": 0.5,
+                    "type": "con",
+                    "nodes": [
+                        {
+                            "border": "none",
+                            "current_border_width": 2,
+                            "floating": "auto_off",
+                            "geometry": {
+                               "height": 458,
+                               "width": 802,
+                               "x": 0,
+                               "y": 0
+                            },
+                            "name": "terminal-2",
+                            "percent": 1,
+                            "swallows": [
+                               {
+                               "class": "^Xfce4\\-terminal$",
+                               // "instance": "^xfce4\\-terminal$",
+                               "title": "^terminal\\-2$",
+                               // "transient_for": "^$",
+                               // "window_role": "^xfce4\\-terminal\\-1479261614\\-1613993676$"
+                               }
+                            ],
+                            "type": "con"
+                        }
+                    ]
+                },
+                {
+                    "border": "none",
+                    "current_border_width": 2,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 458,
+                       "width": 802,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "mc",
+                    "percent": 0.5,
+                    "swallows": [
+                       {
+                       "class": "^Xfce4\\-terminal$",
+                       // "instance": "^xfce4\\-terminal$",
+                       "title": "^mc$",
+                       // "transient_for": "^$",
+                       // "window_role": "^xfce4\\-terminal\\-1479261234\\-\\-1613285243$"
+                       }
+                    ],
+                    "type": "con"
+                }
+            ]
+        },
+        {
+            // splitv split container with 2 children
+            "border": "pixel",
+            "floating": "auto_off",
+            "layout": "splitv",
+            "percent": 0.5,
+            "type": "con",
+            "nodes": [
+                {
+                    // splith split container with 1 children
+                    "border": "pixel",
+                    "floating": "auto_off",
+                    "layout": "splith",
+                    "percent": 0.5,
+                    "type": "con",
+                    "nodes": [
+                        {
+                            "border": "none",
+                            "current_border_width": 2,
+                            "floating": "auto_off",
+                            "geometry": {
+                               "height": 458,
+                               "width": 802,
+                               "x": 0,
+                               "y": 0
+                            },
+                            "name": "terminal-1",
+                            "percent": 1,
+                            "swallows": [
+                               {
+                               "class": "^Xfce4\\-terminal$",
+                               // "instance": "^xfce4\\-terminal$",
+                               "title": "^terminal\\-1$",
+                               // "transient_for": "^$",
+                               // "window_role": "^xfce4\\-terminal\\-1479261575\\-\\-506546290$"
+                               }
+                            ],
+                            "type": "con"
+                        }
+                    ]
+                },
+                {
+                    "border": "none",
+                    "current_border_width": 2,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 458,
+                       "width": 802,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "ncmpc",
+                    "percent": 0.5,
+                    "swallows": [
+                       {
+                       "class": "^Xfce4\\-terminal$",
+                       // "instance": "^xfce4\\-terminal$",
+                       "title": "^ncmpc$",
+                       // "transient_for": "^$",
+                       // "window_role": "^xfce4\\-terminal\\-1479261234\\-2078885854$"
+                       }
+                    ],
+                    "type": "con"
+                }
+            ]
+        }
+    ]
+}
+
+{
+    // workspace with 1 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splith",
+    "percent": 0.333333333333333,
+    "type": "workspace",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 0,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 749,
+               "width": 1366,
+               "x": 0,
+               "y": 0
+            },
+            "name": "Google - Mozilla Firefox",
+            "percent": 1,
+            "swallows": [
+               {
+               "class": "^Firefox$",
+               // "instance": "^Navigator$",
+               "title": "^Google\\ \\-\\ Mozilla\\ Firefox$",
+               // "transient_for": "^$",
+               // "window_role": "^browser$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
+{
+    // workspace with 1 children
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "splith",
+    "percent": null,
+    "type": "workspace",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 0,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 749,
+               "width": 1366,
+               "x": 0,
+               "y": 0
+            },
+            "name": "config — /home/nexiten/.config/i3 — Atom",
+            "percent": 1,
+            "swallows": [
+               {
+               "class": "^Atom$",
+               // "instance": "^atom$",
+               "title": "^config\\ \\—\\ \\/home\\/nexiten\\/\\.config\\/i3\\ \\—\\ Atom$",
+               // "transient_for": "^$",
+               // "window_role": "^browser\\-window$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
+{
+    // workspace with 2 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splith",
+    "percent": 0.333333333333333,
+    "type": "workspace",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 0,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 720,
+               "width": 1366,
+               "x": 0,
+               "y": 29
+            },
+            "name": "Telegram (418)",
+            "percent": 0.6,
+            "swallows": [
+               {
+               "class": "^TelegramDesktop$",
+               // "instance": "^Telegram$",
+               "title": "^Telegram\\ \\(418\\)$",
+               // "transient_for": "^$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "none",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 458,
+               "width": 802,
+               "x": 0,
+               "y": 0
+            },
+            "name": "vk",
+            "percent": 0.4,
+            "swallows": [
+               {
+               "class": "^Xfce4\\-terminal$",
+               // "instance": "^xfce4\\-terminal$",
+               "title": "^vk$",
+               // "transient_for": "^$",
+               // "window_role": "^xfce4\\-terminal\\-1479261234\\-\\-1931172025$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}

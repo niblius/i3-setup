@@ -1,4 +1,8 @@
 #!/bin/bash
 
-files=(~/wallpapers/*)
-printf "%s\n" "${files[RANDOM % ${#files[@]}]}"
+scripts=$(ls /usr/share/nano/)
+
+for word in $scripts
+do
+    echo "include /usr/share/nano/${word}" >> ~/.nanorc
+done
